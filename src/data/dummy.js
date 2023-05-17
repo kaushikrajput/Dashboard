@@ -1248,7 +1248,6 @@ export const customersData = [
   },
   {
     CustomerID: 1024,
-
     CustomerName: "Christopher Jamil",
     CustomerEmail: "jamil@gmail.com",
     ProjectName: "MedicalPro WP Theme",
