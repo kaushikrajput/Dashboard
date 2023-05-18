@@ -7,12 +7,15 @@ import {
   SparklineAreaData,
   ecomPieChartData,
 } from "../data/dummy";
+import { IoIosMore } from "react-icons/io";
+import product9 from "../data/product9.jpg";
+
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Ecommerce = () => {
   const { currentColor } = useStateContext();
   return (
-    <div className="mt-12">
+    <div className="mt-24">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rouded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
           <div className="flex justify-between items-center">
@@ -22,7 +25,7 @@ const Ecommerce = () => {
             </div>
             <button
               type="button"
-              style={{ backgroundColor: "red" }}
+              style={{ backgroundColor: currentColor }}
               className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full  p-4"
             >
               <BsCurrencyDollar />
@@ -42,8 +45,8 @@ const Ecommerce = () => {
           {earningData.map((item) => (
             <div
               key={item.title}
-              className="bg-white dark
-            text-gray-200 dark:bg-secondary-dark-bg md:w-66 p-4 pt-9 rounded-2xl"
+              className="bg-white dark h-44
+            text-gray-200 dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl"
             >
               <button
                 type="button"
@@ -66,9 +69,9 @@ const Ecommerce = () => {
       <div className="flex gap-10 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rouded-2xl md:w-780">
           <div className="flex justify-between">
-            <p className="font-semibold">Revenue Updates</p>
+            <p className="font-semibold text-xl">Revenue Updates</p>
             <div className="flex item-center gap-4">
-              <p className="flex items-center gap-2 text-black-200 hover-drop-shadow-xl">
+              <p className="flex items-center gap-2 text-gray-600 hover-drop-shadow-xl">
                 <span>
                   <GoPrimitiveDot />
                 </span>
@@ -121,6 +124,36 @@ const Ecommerce = () => {
             </div>
             <div>
               <Stacked width="320px" height="360px" />
+            </div>
+          </div>
+        </div>
+        <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+          <div className="flex justify-between">
+            <p className="text-xl font-semibold">Daily Activities</p>
+            <button
+              type="button"
+              className="text-xl font-semibold text-gray-500"
+            >
+              <IoIosMore />
+            </button>
+          </div>
+          <div className="mt-10">
+            <img className="md:w-96 h-50 " src={product9} alt="" />
+            <div className="mt-8">
+              <p className="font-semibold text-lg">React 18 coming soon!</p>
+              <p className="text-gray-400 ">By Johnathan Doe</p>
+              <p className="mt-8 text-sm text-gray-400">
+                This will be the small description for the news you have shown
+                here. There could be some great info.
+              </p>
+              <div className="mt-3">
+                <Button
+                  color="white"
+                  bgColor={currentColor}
+                  text="Read More"
+                  borderRadius="10px"
+                />
+              </div>
             </div>
           </div>
         </div>

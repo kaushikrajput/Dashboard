@@ -29,7 +29,7 @@ const ThemeSettings = () => {
           </button>
         </div>
 
-        <div className="flex-col border-t-1 p-4 ml-4 ">
+        {/* <div className="flex-col border-t-1 p-4 ml-4 ">
           <p className="font-semibold text-lg">Theme Option</p>
           <div className="mt-4 ">
             <input
@@ -59,7 +59,7 @@ const ThemeSettings = () => {
               Dark
             </label>
           </div>
-        </div>
+        </div> */}
         <div className="flex-col border-t-1 p-4 ml-4 ">
           <p className="font-semibol m d text-lg">Theme Colors</p>
           <div className="flex gap-3 ">

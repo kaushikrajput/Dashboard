@@ -9,6 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { Header } from "../../components";
 
 const Stacked = ({ width, height }) => {
   const data = [
@@ -57,18 +58,31 @@ const Stacked = ({ width, height }) => {
   ];
   return (
     <>
-    <h1>Stacked</h1>
-      <ResponsiveContainer width="100%" height="100%" aspect={2}>
-        <BarChart width={width} height={height} data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="pv" stackId="a" fill="#8884d8" />
-          <Bar dataKey="uv" stackId="a" fill="#82ca9d" />
-        </BarChart>
-      </ResponsiveContainer>
+      <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+        <Header category="Chart" title="Stacked" />
+        <p className="text-center dark:text-gray-200 text-xl mb-2 mt-3">
+          Revenue Breakdown
+        </p>
+          <BarChart
+            width={800}
+            height={400}
+            data={data}
+            margin={{
+              top: 20,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="uv" stackId="a" fill="#00bdae" />
+            <Bar dataKey="pv" stackId="a" fill="#404041" />
+          </BarChart>
+      </div>
     </>
   );
 };

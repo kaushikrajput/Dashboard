@@ -9,79 +9,68 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import {
+  lineCustomSeries,
+  LinePrimaryXAxis,
+  LinePrimaryYAxis,
+} from "../../data/dummy";
 
 const LineCharts = () => {
   const data = [
     {
       name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
+      uv: 1500,
+      pv: 1000,
+      amt: 1400,
     },
     {
       name: "Page B",
       uv: 3000,
-      pv: 1398,
+      pv: 2400,
       amt: 2210,
     },
     {
       name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
+      uv: 4000,
+      pv: 3500,
+      amt: 3290,
     },
     {
       name: "Page D",
-      uv: 2780,
+      uv: 4780,
       pv: 3908,
-      amt: 2000,
+      amt: 3900,
     },
     {
       name: "Page E",
-      uv: 1890,
+      uv: 5890,
       pv: 4800,
-      amt: 2181,
+      amt: 5781,
     },
     {
       name: "Page F",
-      uv: 2390,
+      uv: 6390,
       pv: 3800,
-      amt: 2500,
+      amt: 6900,
     },
     {
       name: "Page G",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
+      uv: 7490,
+      pv: 8900,
+      amt: 10000,
     },
   ];
   return (
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line
-            
-            dataKey="pv"
-            stroke="#8884d8"
-            activeDot={{ r: 8 }}
-          />
-          <Line dataKey="uv" stroke="#82ca9d" />
-        </LineChart>
-      </ResponsiveContainer>
+    <LineChart width={800} height={420} data={data}>
+      <CartesianGrid />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Line dataKey="pv" stroke="#444445" activeDot={{ r: 8 }} />
+      <Line dataKey="uv" stroke="#42cec3" />
+      <Line dataKey="amt" stroke="#357cd2" />
+    </LineChart>
   );
 };
 
