@@ -1,13 +1,15 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { SiShopware } from "react-icons/si";
+import { FaShopify } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 import { Tooltip } from "@mui/material";
 import { links } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSize ,currentColor} = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, currentColor } =
+    useStateContext();
 
   const handleCloseSideBar = () => {
     if (activeMenu && screenSize <= 900) {
@@ -30,7 +32,7 @@ const Sidebar = () => {
               onClick={handleCloseSideBar}
               className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900"
             >
-              <SiShopware />
+              <FaShopify />
               <span>Shoppy</span>
             </Link>
             <Tooltip title="Menu" placement="bottom">

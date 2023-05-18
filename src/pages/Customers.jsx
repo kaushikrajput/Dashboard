@@ -10,20 +10,19 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Avatar from "@mui/material/Avatar";
 import { Card, TablePagination } from "@mui/material";
-const Customers = (props) => {
-  const {
-    count = 0,
-    items = [],
-    onDeselectAll,
-    onDeselectOne,
-    onPageChange = () => {},
-    onRowsPerPageChange,
-    onSelectAll,
-    onSelectOne,
-    page = 0,
-    rowsPerPage = 0,
-    selected = [],
-  } = props;
+
+const Customers = () => {
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
@@ -41,7 +40,7 @@ const Customers = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {customersData.map((row) => (
+              {customersData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
                 <TableRow key={row.CustomerID}>
                   <TableCell>
                     <Avatar src={row.CustomerImage}></Avatar>
@@ -57,13 +56,13 @@ const Customers = (props) => {
           </Table>
         </TableContainer>
         <TablePagination
+          rowsPerPageOptions={[10, 25, 100]}
           component="div"
-          count={count}
-          onPageChange={onPageChange}
-          onRowsPerPageChange={onRowsPerPageChange}
-          page={page}
+          count={customersData.length}
           rowsPerPage={rowsPerPage}
-          rowsPerPageOptions={[5, 10, 25]}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Card>
     </div>

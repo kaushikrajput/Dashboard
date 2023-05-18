@@ -11,20 +11,18 @@ import { Card, TablePagination } from "@mui/material";
 import { employeesData, employeesGrid } from "../data/dummy";
 import { Header } from "../components";
 
-const Employees = (props) => {
-  const {
-    count = 0,
-    items = [],
-    onDeselectAll,
-    onDeselectOne,
-    onPageChange = () => {},
-    onRowsPerPageChange,
-    onSelectAll,
-    onSelectOne,
-    page = 0,
-    rowsPerPage = 0,
-    selected = [],
-  } = props;
+const Employees = () => {
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
@@ -43,7 +41,7 @@ const Employees = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {employeesData.map((row) => (
+              {employeesData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
                 <TableRow key={row.EmployeeID}>
                   <TableCell>
                     <Avatar src={row.EmployeeImage}></Avatar>
@@ -59,13 +57,13 @@ const Employees = (props) => {
           </Table>
         </TableContainer>
         <TablePagination
+          rowsPerPageOptions={[10, 25, 100]}
           component="div"
-          count={count}
-          onPageChange={onPageChange}
-          onRowsPerPageChange={onRowsPerPageChange}
-          page={page}
+          count={employeesData.length}
           rowsPerPage={rowsPerPage}
-          rowsPerPageOptions={[5, 10, 25]}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Card>
     </div>

@@ -545,18 +545,18 @@ export const links = [
         name: "calendar",
         icon: <AiOutlineCalendar />,
       },
-      {
-        name: "kanban",
-        icon: <BsKanban />,
-      },
+      // {
+      //   name: "kanban",
+      //   icon: <BsKanban />,
+      // },
       {
         name: "editor",
         icon: <FiEdit />,
       },
-      {
-        name: "color-picker",
-        icon: <BiColorFill />,
-      },
+      // {
+      //   name: "color-picker",
+      //   icon: <BiColorFill />,
+      // },
     ],
   },
   {
@@ -579,18 +579,18 @@ export const links = [
         name: "pie",
         icon: <FiPieChart />,
       },
-      {
-        name: "financial",
-        icon: <RiStockLine />,
-      },
-      {
-        name: "color-mapping",
-        icon: <BsBarChart />,
-      },
-      {
-        name: "pyramid",
-        icon: <GiLouvrePyramid />,
-      },
+      // {
+      //   name: "financial",
+      //   icon: <RiStockLine />,
+      // },
+      // {
+      //   name: "color-mapping",
+      //   icon: <BsBarChart />,
+      // },
+      // {
+      //   name: "pyramid",
+      //   icon: <GiLouvrePyramid />,
+      // },
       {
         name: "stacked",
         icon: <AiOutlineBarChart />,
