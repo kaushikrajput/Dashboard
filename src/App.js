@@ -35,10 +35,10 @@ const App = () => {
     currentColor,
     currentMode,
   } = useStateContext();
-  const { currentUser } = useContext(AuthContext);
-  const RequireAuth = ({ children }) => {
-    return currentUser ? children : <Navigate to="/login" />;
-  };
+  // const { currentUser } = useContext(AuthContext);
+  // const RequireAuth = ({ children }) => {
+  //   return currentUser ? children : <Navigate to="/login" />;
+  // };
 
   return (
     <div>
@@ -79,9 +79,7 @@ const App = () => {
                 {themeSettings && <ThemeSettings />}
 
                 <Routes>
-                  {/* Login */}
-                  {/* <Route path="login" element={<Login />} /> */}
-
+                  
                   {/* Dashboard */}
                   <Route path="/" element={<Ecommerce />} />
                   <Route path="/ecommerce" element={<Ecommerce />} />
